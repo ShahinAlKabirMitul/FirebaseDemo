@@ -9,19 +9,14 @@ import{AngularFireDatabase} from 'angularfire2/database'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent {
   title = 'app';
-  subscription:Subscription;
-  courses:any;
+  courses$;
+  
  constructor(db:AngularFireDatabase){
-  this.subscription= db.list('/courses').subscribe(data=>{
-      this.courses=data;
-      console.log(this.courses);
-   });
+   this.courses$=db.list('/courses');
+  
 
  }
- ngOnDestroy(){
-   console.log('click');
-  this.subscription.unsubscribe();  
- }
+ 
 }

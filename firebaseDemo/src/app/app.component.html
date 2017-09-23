@@ -1,6 +1,6 @@
-<button (click)="ngOnDestroy()" > go Ofline</button>
+
 <ul>
-  <li *ngFor="let c of courses">
+  <li *ngFor="let c of courses$ | async  ">
     {{c.$value}}
   </li>
 </ul>
