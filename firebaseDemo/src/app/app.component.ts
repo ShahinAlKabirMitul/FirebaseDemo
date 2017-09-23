@@ -12,11 +12,13 @@ import{AngularFireDatabase} from 'angularfire2/database'
 export class AppComponent {
   title = 'app';
   courses$;
+  course$;
+  author$;
   
  constructor(db:AngularFireDatabase){
    this.courses$=db.list('/courses');
-  
-
+   this.course$=db.object('/courses/1');
+   this.author$=db.object('/authors/1');
  }
  
 }
