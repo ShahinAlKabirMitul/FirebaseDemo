@@ -15,7 +15,7 @@ export class AppComponent {
   course$;
   author$;
   
- constructor(db:AngularFireDatabase){
+ constructor(private db:AngularFireDatabase){
    this.courses$=db.list('/courses');
    this.course$=db.object('/courses/1');
    this.author$=db.object('/authors/1');
@@ -23,5 +23,13 @@ export class AppComponent {
  add(course:HTMLInputElement){
    this.courses$.push(course.value);
    course.value='';
+ }
+ update(course){
+  this.db.object('/courses/'+course.$key)
+  .set({
+    title: course.$value+' UPDATES',
+    price:150
+  })
+    
  }
 }
