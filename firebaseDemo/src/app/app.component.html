@@ -1,19 +1,7 @@
+<input type="text" (keyup.enter)="add(course)" #course>
 
 <ul>
   <li *ngFor="let c of courses$ | async  ">
     {{c.$value}}
   </li>
 </ul>
-<ul *ngIf="(author$|async) as author">
-  <li>{{author.name}} </li>
-  <li>{{ author.student}} </li>
-  <li>{{ author.isPremium}} </li>
-</ul>
-
-<P>
-  {{course$|async|json}}
-</P>
-
-<P>
-  {{author$|async|json}}
-</P>
