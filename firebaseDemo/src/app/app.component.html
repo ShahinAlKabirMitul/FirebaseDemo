@@ -4,5 +4,6 @@
   <li *ngFor="let c of courses$ | async  ">
     {{c.$value|| c.title}}
     <button (click)="update(c)" >Update</button>
+    <button (click)="delete(c)" >Delete</button>
   </li>
 </ul>

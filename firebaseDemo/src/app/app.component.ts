@@ -32,4 +32,15 @@ export class AppComponent {
   })
     
  }
+ delete(course){
+  this.db.object('/courses/'+course.$key)
+  .remove()
+  .then(s=>{
+    console.log('Deleted');
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+    
+ }
 }
